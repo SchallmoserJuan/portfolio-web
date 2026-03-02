@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Juan Schallmoser — Backend Engineer</title>
+<meta name="description" content="Backend developer building SaaS products with Java, Node.js, and AWS. From Argentina, open to remote opportunities."/>
+<meta property="og:title" content="Juan Schallmoser — Backend Engineer"/>
+<meta property="og:description" content="I build real products with Java, Node.js, and AWS. MERN stack SaaS developer from Argentina."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://juanschallmoser.dev"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Juan Schallmoser — Backend Engineer"/>
+<meta name="twitter:description" content="Backend developer from Argentina. Building real products with Java, Node.js & AWS."/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23005FB8'/><text x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' fill='white' font-family='monospace' font-weight='bold' font-size='14'>JS</text></svg>"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#005FB8",
+                        "primary-dark": "#3B82F6",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#111111", 
+                        "text-main": "#111111",
+                        "text-main-dark": "#EEEEEE",
+                        "grid-line": "#E5E5E5",
+                        "grid-line-dark": "#2A2A2A",
+                        "surface-light": "#F9FAFB",
+                        "surface-dark": "#161616",
+                    },
+                    fontFamily: {
+                        "sans": ['IBM Plex Sans', 'sans-serif'],
+                        "mono": ['IBM Plex Mono', 'monospace'],
+                        "display": ['IBM Plex Sans', 'sans-serif'] 
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px", 
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px",
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        html { scroll-behavior: smooth; }
+        body { transition: background-color 0.5s ease, color 0.5s ease; }
+
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, #E5E5E5 1px, transparent 1px),
+                              linear-gradient(to bottom, #E5E5E5 1px, transparent 1px);
+            transition: background-image 0.5s ease;
+        }
+        .dark .bg-grid {
+             background-image: linear-gradient(to right, #2A2A2A 1px, transparent 1px),
+                              linear-gradient(to bottom, #2A2A2A 1px, transparent 1px);
+        }
+        @media (max-width: 768px) {
+            .bg-grid { background-size: 20px 20px; }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.15s; }
+        .reveal-delay-2 { transition-delay: 0.3s; }
+        .reveal-delay-3 { transition-delay: 0.45s; }
+        .reveal-delay-4 { transition-delay: 0.6s; }
+        .reveal-delay-5 { transition-delay: 0.75s; }
+
+        /* Animated section separator */
+        .section-separator {
+            position: relative;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--sep-color, #E5E5E5) 20%, var(--sep-color, #E5E5E5) 80%, transparent);
+            overflow: hidden;
+        }
+        .dark .section-separator { --sep-color: #2A2A2A; }
+        .section-separator::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #005FB8, transparent);
+            animation: separator-scan 3s ease-in-out infinite;
+        }
+        .dark .section-separator::after {
+            background: linear-gradient(90deg, transparent, #3B82F6, transparent);
+        }
+        @keyframes separator-scan {
+            0% { left: -60%; }
+            100% { left: 100%; }
+        }
+
+        /* Tech card hover glow */
+        .tech-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .tech-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,95,184,0.12);
+            background-color: rgba(0,95,184,0.03);
+        }
+        .dark .tech-card:hover {
+            box-shadow: 0 8px 30px rgba(59,130,246,0.1);
+            background-color: rgba(59,130,246,0.05);
+        }
+
+        /* Gradient accent text */
+        .gradient-text {
+            background: linear-gradient(135deg, #005FB8 0%, #38BDF8 50%, #005FB8 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 6s ease infinite;
+        }
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #3B82F6 0%, #67E8F9 50%, #3B82F6 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: gradient-shift 6s ease infinite;
+        }
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Status dot pulse */
+        @keyframes pulse-status {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .status-dot { animation: pulse-status 2s infinite ease-in-out; }
+
+        /* Typing cursor blink */
+        @keyframes blink-caret {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: currentColor; }
+        }
+        .typing-cursor {
+            border-right: 3px solid currentColor;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        /* Mobile Menu */
+        .mobile-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .mobile-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-panel {
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-overlay.open .mobile-panel {
+            transform: translateX(0);
+        }
+
+        /* Back to top */
+        .back-to-top {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Tech matrix card hover */
+        .tech-card {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .tech-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 95, 184, 0.1);
+        }
+        .dark .tech-card:hover {
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+        }
+
+        /* Nav active indicator */
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #005FB8;
+            transition: width 0.3s ease;
+        }
+        .dark .nav-link::after { background: #3B82F6; }
+        .nav-link.active::after { width: 100%; }
+
+        /* Contact form */
+        .form-input {
+            background: transparent;
+            border: 1px solid #E5E5E5;
+            padding: 12px 16px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            width: 100%;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .dark .form-input { border-color: #2A2A2A; color: #EEEEEE; background-color: #1a1a1a; }
+        .form-input:focus {
+            border-color: #005FB8;
+            box-shadow: 0 0 0 3px rgba(0, 95, 184, 0.1);
+        }
+        .dark .form-input:focus {
+            border-color: #3B82F6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+        .form-input.error { border-color: #EF4444; }
+        .form-input::placeholder { color: #9CA3AF; }
+
+        /* Parallax grid */
+        .bg-grid-parallax { transition: background-position 0.1s linear; }
+
+        /* Skill level bar */
+        .skill-bar {
+            height: 2px;
+            background: #E5E5E5;
+            margin-top: 6px;
+            overflow: hidden;
+        }
+        .dark .skill-bar { background: #2A2A2A; }
+        .skill-bar-fill {
+            height: 100%;
+            background: #005FB8;
+            width: 0;
+            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .dark .skill-bar-fill { background: #3B82F6; }
+        .skill-bar.visible .skill-bar-fill { width: var(--level); }
+
+        /* Project preview hover */
+        .project-preview {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            border-radius: 0.25rem;
+            margin-top: 1rem;
+        }
+        .project-preview img {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+        }
+        .project-preview:hover img {
+            transform: scale(1.05);
+            filter: brightness(0.6);
+        }
+        .project-preview .preview-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .project-preview:hover .preview-overlay {
+            opacity: 1;
+        }
+        .project-preview .preview-overlay span {
+            color: #fff;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255,255,255,0.5);
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-text-main-dark font-sans min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white dark:selection:bg-primary-dark">
+<div class="fixed inset-0 pointer-events-none z-0 bg-grid bg-grid-parallax opacity-40 dark:opacity-20" id="gridBg"></div>
+<div class="relative z-10 w-full max-w-[1440px] mx-auto border-x border-grid-line dark:border-grid-line-dark bg-white dark:bg-background-dark min-h-screen flex flex-col transition-colors duration-500">
+<header class="flex items-center justify-between px-6 py-6 border-b border-grid-line dark:border-grid-line-dark md:px-12 bg-white/95 dark:bg-background-dark/95 backdrop-blur-sm sticky top-0 z-50" id="header">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-dark text-2xl">terminal</span>
+<span class="font-bold text-lg tracking-tight">Juan Schallmoser</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="nav-link group flex items-center gap-1 text-sm font-medium hover:text-primary dark:hover:text-primary-dark transition-colors" href="#aboutme" data-section="aboutme">
+<span class="opacity-0 group-hover:opacity-100 transition-opacity text-primary dark:text-primary-dark"></span> <span data-i18n="nav-about">About Me</span>
+                </a>
+<a class="nav-link group flex items-center gap-1 text-sm font-medium hover:text-primary dark:hover:text-primary-dark transition-colors" href="#projects" data-section="projects">
+<span class="opacity-0 group-hover:opacity-100 transition-opacity text-primary dark:text-primary-dark"></span> <span data-i18n="nav-projects">Projects</span>
+                </a>
+<a class="nav-link group flex items-center gap-1 text-sm font-medium hover:text-primary dark:hover:text-primary-dark transition-colors" href="#contact" data-section="contact">
+<span class="opacity-0 group-hover:opacity-100 transition-opacity text-primary dark:text-primary-dark"></span> <span data-i18n="nav-contact">Contact</span>
+                </a>
+<div class="h-4 w-px bg-grid-line dark:bg-grid-line-dark mx-2"></div>
+<a class="group flex items-center gap-1 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-dark transition-colors" href="#download">
+                     Resume <span class="material-symbols-outlined text-base leading-none">download</span>
+</a>
+<button class="ml-4 font-mono text-xs font-bold tracking-wider hover:text-primary dark:hover:text-primary-dark transition-colors" id="theme-toggle-text" onclick="toggleDarkMode()">
+                    [<span class="text-primary">LIGHT</span> / DARK]
+                </button>
+<button class="ml-2 font-mono text-xs font-bold tracking-wider hover:text-primary dark:hover:text-primary-dark transition-colors" id="lang-toggle" onclick="toggleLang()">
+                    [<span class="text-primary dark:text-primary-dark">EN</span> / ES]
+                </button>
+</nav>
+<div class="md:hidden flex items-center gap-4">
+<button class="font-mono text-xs font-bold tracking-wider" onclick="toggleDarkMode()" id="theme-toggle-mobile">
+                    [+/-]
+                </button>
+<button class="font-mono text-xs font-bold tracking-wider" onclick="toggleLang()" id="lang-toggle-mobile">
+                    [EN]
+                </button>
+<button class="text-text-main dark:text-text-main-dark" onclick="toggleMobileMenu()" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Mobile Menu Overlay -->
+<div class="mobile-overlay fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm" id="mobileOverlay" onclick="closeMobileMenu(event)">
+<div class="mobile-panel absolute right-0 top-0 h-full w-72 bg-white dark:bg-background-dark border-l border-grid-line dark:border-grid-line-dark p-8 flex flex-col gap-6">
+<div class="flex justify-between items-center mb-4">
+<span class="font-bold text-lg">Menu</span>
+<button onclick="toggleMobileMenu()" class="text-text-main dark:text-text-main-dark">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<a href="#aboutme" class="text-lg font-medium hover:text-primary dark:hover:text-primary-dark transition-colors py-2 border-b border-grid-line dark:border-grid-line-dark" onclick="toggleMobileMenu()"><span data-i18n="nav-about">About Me</span></a>
+<a href="#projects" class="text-lg font-medium hover:text-primary dark:hover:text-primary-dark transition-colors py-2 border-b border-grid-line dark:border-grid-line-dark" onclick="toggleMobileMenu()"><span data-i18n="nav-projects">Projects</span></a>
+<a href="#contact" class="text-lg font-medium hover:text-primary dark:hover:text-primary-dark transition-colors py-2 border-b border-grid-line dark:border-grid-line-dark" onclick="toggleMobileMenu()"><span data-i18n="nav-contact">Contact</span></a>
+<a href="#download" class="flex items-center gap-2 text-lg font-medium text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-dark transition-colors py-2">
+                    Resume <span class="material-symbols-outlined text-base">download</span>
+</a>
+</div>
+</div>
+<main class="flex-grow">
+<section class="grid grid-cols-1 lg:grid-cols-12 min-h-[60vh] border-b border-grid-line dark:border-grid-line-dark" id="hero">
+<div class="lg:col-span-4 p-6 md:p-12 border-b lg:border-b-0 lg:border-r border-grid-line dark:border-grid-line-dark flex flex-col justify-between bg-white/50 dark:bg-background-dark/50 backdrop-blur-sm">
+<div class="reveal">
+<h1 class="text-5xl md:text-6xl font-bold leading-none tracking-tighter mb-4 text-text-main dark:text-white">
+<span id="typing-target"></span><span class="typing-cursor" id="typing-cursor">&nbsp;</span>
+                        </h1>
+<p class="font-mono text-sm text-gray-500 dark:text-gray-400 mt-2" data-i18n="hero-location">Argentina • REMOTE</p>
+</div>
+<div class="mt-12 lg:mt-0 reveal reveal-delay-2">
+<div class="flex flex-col gap-2 font-mono text-xs uppercase tracking-wider text-gray-600 dark:text-gray-400">
+<span class="flex items-center gap-2"><span class="w-2 h-2 bg-primary dark:bg-primary-dark"></span>Java & Spring Boot</span>
+<span class="flex items-center gap-2"><span class="w-2 h-2 bg-primary dark:bg-primary-dark"></span>Node.js & MERN Stack</span>
+<span class="flex items-center gap-2"><span class="w-2 h-2 bg-primary dark:bg-primary-dark"></span>AWS Cloud</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 p-6 md:p-12 flex flex-col justify-center bg-white dark:bg-background-dark relative overflow-hidden">
+<div class="absolute top-0 right-0 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(0,95,184,0.15)_0%,transparent_70%)] dark:bg-[radial-gradient(circle,rgba(59,130,246,0.15)_0%,transparent_70%)] pointer-events-none"></div>
+<h2 class="reveal text-2xl md:text-4xl font-medium leading-tight mb-6 max-w-4xl dark:text-gray-100" data-i18n="hero-tagline">
+                        Building software that works — and sells.
+                    </h2>
+<p class="reveal reveal-delay-1 font-mono text-sm text-gray-500 dark:text-gray-400 tracking-wider" data-i18n="hero-context">Backend Developer · SaaS Builder · AWS Cloud</p>
+</div>
+</section>
+<!-- About Me Section -->
+<section class="border-b border-grid-line dark:border-grid-line-dark" id="aboutme">
+<div class="grid grid-cols-1 lg:grid-cols-12">
+<div class="lg:col-span-4 p-6 md:p-12 border-b lg:border-b-0 lg:border-r border-grid-line dark:border-grid-line-dark bg-gray-50 dark:bg-surface-dark">
+<h2 class="text-2xl font-bold tracking-tight sticky top-24 dark:text-white reveal" data-i18n="about-title">About Me</h2>
+<p class="mt-4 text-sm text-gray-500 dark:text-gray-400 font-mono reveal reveal-delay-1" data-i18n="about-subtitle">WHO I AM</p>
+</div>
+<div class="lg:col-span-8 p-6 md:p-12">
+<div class="space-y-8">
+<div class="reveal reveal-delay-1 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-grid-line dark:border-grid-line-dark pt-8">
+<div>
+<h3 class="font-mono text-xs text-primary dark:text-primary-dark uppercase mb-4 tracking-wider" data-i18n="about-whatido-title">What I Do</h3>
+<p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-i18n="about-whatido-text">
+                                    I build backend APIs with Java and Node.js, deploy them on AWS, and create full-stack SaaS applications with the MERN stack. GoMove, my fitness coaching platform, runs in production with paying clients on a monthly subscription.
+                                </p>
+</div>
+<div>
+<h3 class="font-mono text-xs text-primary dark:text-primary-dark uppercase mb-4 tracking-wider" data-i18n="about-edu-title">Education</h3>
+<p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-i18n="about-edu-text">
+                                    Technical degree in Software Development. Self-taught in cloud infrastructure, DevOps, and modern web development. Constantly learning and shipping — I believe the best education is building real products that people use and pay for.
+                                </p>
+</div>
+</div>
+<div class="reveal reveal-delay-2 flex flex-wrap gap-3 border-t border-grid-line dark:border-grid-line-dark pt-8">
+<span class="px-3 py-1 border border-grid-line dark:border-grid-line-dark text-xs font-mono text-gray-600 dark:text-gray-400">Java & Spring Boot</span>
+<span class="px-3 py-1 border border-grid-line dark:border-grid-line-dark text-xs font-mono text-gray-600 dark:text-gray-400">Node.js & Express</span>
+<span class="px-3 py-1 border border-grid-line dark:border-grid-line-dark text-xs font-mono text-gray-600 dark:text-gray-400">MERN Stack</span>
+<span class="px-3 py-1 border border-grid-line dark:border-grid-line-dark text-xs font-mono text-gray-600 dark:text-gray-400">AWS Cloud</span>
+<span class="px-3 py-1 border border-grid-line dark:border-grid-line-dark text-xs font-mono text-gray-600 dark:text-gray-400">React & Next.js</span>
+<span class="px-3 py-1 border border-grid-line dark:border-grid-line-dark text-xs font-mono text-gray-600 dark:text-gray-400">SaaS Development</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="section-separator"></div>
+<section class="border-b border-grid-line dark:border-grid-line-dark bg-surface-light dark:bg-surface-dark" id="stack">
+<div class="grid grid-cols-1 lg:grid-cols-12">
+<div class="lg:col-span-3 p-6 md:p-12 border-b lg:border-b-0 lg:border-r border-grid-line dark:border-grid-line-dark">
+<h2 class="text-2xl font-bold tracking-tight dark:text-white reveal">Tech Matrix</h2>
+<p class="mt-4 text-sm text-gray-500 dark:text-gray-400 font-mono reveal reveal-delay-1">INFRASTRUCTURE &amp; TOOLING</p>
+</div>
+<div class="lg:col-span-9">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+<div class="tech-card reveal p-6 md:p-8 border-b md:border-r border-grid-line dark:border-grid-line-dark">
+<h3 class="font-mono text-xs text-primary dark:text-primary-dark uppercase mb-4 tracking-wider">Languages</h3>
+<ul class="space-y-3 font-mono text-sm">
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            Java <span class="text-[10px] text-gray-400 dark:text-gray-500">CORE</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            JavaScript <span class="text-[10px] text-gray-400 dark:text-gray-500">ES6+</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            TypeScript <span class="text-[10px] text-gray-400 dark:text-gray-500">TS</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            SQL <span class="text-[10px] text-gray-400 dark:text-gray-500">ADV</span>
+</li>
+</ul>
+</div>
+<div class="tech-card reveal reveal-delay-1 p-6 md:p-8 border-b lg:border-r border-grid-line dark:border-grid-line-dark">
+<h3 class="font-mono text-xs text-primary dark:text-primary-dark uppercase mb-4 tracking-wider">Frameworks</h3>
+<ul class="space-y-3 font-mono text-sm">
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            Node.js / Express <span class="text-[10px] text-gray-400 dark:text-gray-500">API</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            React / Next.js <span class="text-[10px] text-gray-400 dark:text-gray-500">UI</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            Spring Boot <span class="text-[10px] text-gray-400 dark:text-gray-500">JAVA</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            Hibernate / JPA <span class="text-[10px] text-gray-400 dark:text-gray-500">ORM</span>
+</li>
+</ul>
+</div>
+<div class="tech-card reveal reveal-delay-2 p-6 md:p-8 border-b md:border-r lg:border-r-0 border-grid-line dark:border-grid-line-dark">
+<h3 class="font-mono text-xs text-primary dark:text-primary-dark uppercase mb-4 tracking-wider">Data & Storage</h3>
+<ul class="space-y-3 font-mono text-sm">
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            MongoDB <span class="text-[10px] text-gray-400 dark:text-gray-500">NOSQL</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            PostgreSQL <span class="text-[10px] text-gray-400 dark:text-gray-500">SQL</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            MySQL <span class="text-[10px] text-gray-400 dark:text-gray-500">RDBMS</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            Firebase <span class="text-[10px] text-gray-400 dark:text-gray-500">BAAS</span>
+</li>
+</ul>
+</div>
+<div class="tech-card reveal reveal-delay-3 p-6 md:p-8 border-b lg:border-b-0 lg:border-r border-grid-line dark:border-grid-line-dark">
+<h3 class="font-mono text-xs text-primary dark:text-primary-dark uppercase mb-4 tracking-wider">Infrastructure</h3>
+<ul class="space-y-3 font-mono text-sm">
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            AWS <span class="text-[10px] text-gray-400 dark:text-gray-500">CLOUD</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            Docker <span class="text-[10px] text-gray-400 dark:text-gray-500">CONT</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            Vercel <span class="text-[10px] text-gray-400 dark:text-gray-500">DEPLOY</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            Nginx <span class="text-[10px] text-gray-400 dark:text-gray-500">PROXY</span>
+</li>
+</ul>
+</div>
+<div class="tech-card reveal reveal-delay-4 p-6 md:p-8 border-b md:border-b-0 md:border-r border-grid-line dark:border-grid-line-dark">
+<h3 class="font-mono text-xs text-primary dark:text-primary-dark uppercase mb-4 tracking-wider">Architecture</h3>
+<ul class="space-y-3 font-mono text-sm">
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            REST API <span class="text-[10px] text-gray-400 dark:text-gray-500">HTTP</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            MVC <span class="text-[10px] text-gray-400 dark:text-gray-500">PATTERN</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            PWA <span class="text-[10px] text-gray-400 dark:text-gray-500">MOBILE</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            SaaS <span class="text-[10px] text-gray-400 dark:text-gray-500">MODEL</span>
+</li>
+</ul>
+</div>
+<div class="tech-card reveal reveal-delay-5 p-6 md:p-8">
+<h3 class="font-mono text-xs text-primary dark:text-primary-dark uppercase mb-4 tracking-wider">Tools</h3>
+<ul class="space-y-3 font-mono text-sm">
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            Git / GitHub <span class="text-[10px] text-gray-400 dark:text-gray-500">VCS</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            VS Code <span class="text-[10px] text-gray-400 dark:text-gray-500">IDE</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            Postman <span class="text-[10px] text-gray-400 dark:text-gray-500">API</span>
+</li>
+<li class="flex justify-between items-center text-gray-800 dark:text-gray-200">
+                            Figma <span class="text-[10px] text-gray-400 dark:text-gray-500">DESIGN</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="section-separator"></div>
+<section class="border-b border-grid-line dark:border-grid-line-dark" id="projects">
+<div class="grid grid-cols-1 lg:grid-cols-12">
+<div class="lg:col-span-3 p-6 md:p-12 border-b lg:border-b-0 lg:border-r border-grid-line dark:border-grid-line-dark bg-gray-50 dark:bg-surface-dark">
+<h2 class="text-2xl font-bold tracking-tight sticky top-24 dark:text-white" data-i18n="projects-title">Projects</h2>
+<p class="mt-4 text-sm text-gray-500 dark:text-gray-400 font-mono sticky top-36" data-i18n="projects-subtitle">WHAT I'VE BUILT</p>
+</div>
+<div class="lg:col-span-9 p-6 md:p-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- GoMove -->
+<a href="https://www.gomove.com.ar" target="_blank" rel="noopener" class="reveal group block border border-grid-line dark:border-grid-line-dark rounded overflow-hidden transition-all duration-150 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
+<div class="relative overflow-hidden">
+<img src="gomove-preview.png" alt="GoMove SaaS Platform" class="w-full h-[160px] object-cover object-top transition-transform duration-300 group-hover:scale-105"/>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+<span class="font-mono text-xs text-white uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity border border-white/50 px-3 py-1.5 backdrop-blur-sm">View Project →</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex items-baseline justify-between mb-2">
+<h3 class="font-semibold text-lg dark:text-white group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" data-i18n="proj1-name">GoMove — SaaS Platform</h3>
+<span class="font-mono text-[10px] text-gray-400 ml-2 shrink-0">2025</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4" data-i18n="proj1-card-desc">Fitness coaching platform with subscription billing, workout tracking, and real-time session management. Live with paying clients.</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">React</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Node.js</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Firebase</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">PWA</span>
+</div>
+</div>
+</a>
+<!-- Engineering Portfolio -->
+<a href="https://github.com/SchallmoserJuan/portfolio-web" target="_blank" rel="noopener" class="reveal reveal-delay-1 group block border border-grid-line dark:border-grid-line-dark rounded overflow-hidden transition-all duration-150 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
+<div class="relative overflow-hidden">
+<img src="portfolio-preview.png" alt="Engineering Portfolio" class="w-full h-[160px] object-cover object-top transition-transform duration-300 group-hover:scale-105"/>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+<span class="font-mono text-xs text-white uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity border border-white/50 px-3 py-1.5 backdrop-blur-sm">View Project →</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex items-baseline justify-between mb-2">
+<h3 class="font-semibold text-lg dark:text-white group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" data-i18n="proj2-name">Engineering Portfolio</h3>
+<span class="font-mono text-[10px] text-gray-400 ml-2 shrink-0">2024</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4" data-i18n="proj2-card-desc">Professional portfolio with engineering-inspired design, scroll animations, dark mode, and fully functional contact form.</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">HTML</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Tailwind</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">JavaScript</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">GitHub Pages</span>
+</div>
+</div>
+</a>
+<!-- REST API Toolkit -->
+<a href="#" target="_blank" rel="noopener" class="reveal reveal-delay-2 group block border border-grid-line dark:border-grid-line-dark rounded overflow-hidden transition-all duration-100 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
+<div class="relative overflow-hidden">
+<img src="api-dashboard-preview.png" alt="REST API Toolkit" class="w-full h-[160px] object-cover object-top transition-transform duration-300 group-hover:scale-105"/>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+<span class="font-mono text-xs text-white uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity border border-white/50 px-3 py-1.5 backdrop-blur-sm">View Project →</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex items-baseline justify-between mb-2">
+<h3 class="font-semibold text-lg dark:text-white group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" data-i18n="proj3-name">REST API Toolkit</h3>
+<span class="font-mono text-[10px] text-gray-400 ml-2 shrink-0">2024</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4" data-i18n="proj3-card-desc">Spring Boot microservice template with JWT auth, role-based access, Swagger docs, and automated testing. Ready-to-deploy boilerplate.</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Java</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Spring Boot</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">PostgreSQL</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Docker</span>
+</div>
+</div>
+</a>
+<!-- E-Commerce Platform -->
+<a href="#" target="_blank" rel="noopener" class="reveal reveal-delay-3 group block border border-grid-line dark:border-grid-line-dark rounded overflow-hidden transition-all duration-100 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
+<div class="relative overflow-hidden">
+<img src="api-dashboard-preview.png" alt="E-Commerce Platform" class="w-full h-[160px] object-cover object-center transition-transform duration-300 group-hover:scale-105"/>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+<span class="font-mono text-xs text-white uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity border border-white/50 px-3 py-1.5 backdrop-blur-sm">View Project →</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex items-baseline justify-between mb-2">
+<h3 class="font-semibold text-lg dark:text-white group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" data-i18n="proj4-name">E-Commerce Platform</h3>
+<span class="font-mono text-[10px] text-gray-400 ml-2 shrink-0">2024</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4" data-i18n="proj4-card-desc">Full-stack online store with product catalog, cart system, Stripe payments, and admin dashboard. Serverless backend on AWS.</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Next.js</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Node.js</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">AWS Lambda</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Stripe</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<div class="section-separator"></div>
+<!-- Currently Learning -->
+<section class="border-b border-grid-line dark:border-grid-line-dark">
+<div class="grid grid-cols-1 lg:grid-cols-12">
+<div class="lg:col-span-3 p-6 md:p-12 border-b lg:border-b-0 lg:border-r border-grid-line dark:border-grid-line-dark bg-gray-50 dark:bg-surface-dark">
+<h2 class="text-2xl font-bold tracking-tight dark:text-white reveal" data-i18n="learning-title">Currently Learning</h2>
+<p class="mt-4 text-sm text-gray-500 dark:text-gray-400 font-mono reveal reveal-delay-1" data-i18n="learning-subtitle">GROWTH PATH</p>
+</div>
+<div class="lg:col-span-9 p-6 md:p-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="reveal flex items-start gap-4 p-4 border border-grid-line dark:border-grid-line-dark rounded transition-all duration-100 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
+<span class="material-symbols-outlined text-primary dark:text-primary-dark text-2xl mt-0.5">cloud</span>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h3 class="font-bold text-sm dark:text-white" data-i18n="learn1-title">AWS Cloud Practitioner</h3>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-primary-dark rounded">STUDYING</span>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="learn1-text">EC2, S3, RDS, IAM — building towards Solutions Architect</p>
+</div>
+</div>
+<div class="reveal flex items-start gap-4 p-4 border border-grid-line dark:border-grid-line-dark rounded transition-all duration-100 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
+<span class="material-symbols-outlined text-primary dark:text-primary-dark text-2xl mt-0.5">bolt</span>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h3 class="font-bold text-sm dark:text-white" data-i18n="learn2-title">Serverless Architecture</h3>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-primary-dark rounded">EXPLORING</span>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="learn2-text">Lambda, API Gateway, DynamoDB — event-driven backends</p>
+</div>
+</div>
+<div class="reveal flex items-start gap-4 p-4 border border-grid-line dark:border-grid-line-dark rounded transition-all duration-100 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
+<span class="material-symbols-outlined text-primary dark:text-primary-dark text-2xl mt-0.5">deployed_code</span>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h3 class="font-bold text-sm dark:text-white" data-i18n="learn3-title">Docker & Containers</h3>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded">IN USE</span>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="learn3-text">Containerizing apps, Docker Compose, ECS deployment</p>
+</div>
+</div>
+<div class="reveal flex items-start gap-4 p-4 border border-grid-line dark:border-grid-line-dark rounded transition-all duration-100 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
+<span class="material-symbols-outlined text-primary dark:text-primary-dark text-2xl mt-0.5">sync</span>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h3 class="font-bold text-sm dark:text-white" data-i18n="learn4-title">CI/CD Pipelines</h3>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded">IN USE</span>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="learn4-text">GitHub Actions, automated testing, deployment workflows</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Contact Section -->
+<section class="border-b border-grid-line dark:border-grid-line-dark" id="contact">
+<div class="grid grid-cols-1 lg:grid-cols-12">
+<div class="lg:col-span-5 p-6 md:p-12 border-b lg:border-b-0 lg:border-r border-grid-line dark:border-grid-line-dark">
+<h2 class="reveal text-4xl font-bold tracking-tight mb-6 dark:text-white" data-i18n="contact-heading">Let's build something together.</h2>
+<p class="reveal reveal-delay-1 text-gray-600 dark:text-gray-400 mb-8 leading-relaxed" data-i18n="contact-text">
+                    Looking for a backend developer who ships real products? I'm open to opportunities, freelance projects, and collaborations. Let's talk.
+                </p>
+<div class="reveal reveal-delay-2 flex flex-col gap-4">
+<a class="text-lg font-mono hover:text-primary dark:hover:text-primary-dark transition-colors underline decoration-1 underline-offset-4 dark:text-gray-300" href="mailto:schallmoserjuan@gmail.com">hello@juanschallmoser.dev</a>
+<div class="flex items-center gap-2 px-3 py-1.5 border border-grid-line dark:border-grid-line-dark bg-gray-50 dark:bg-surface-dark text-xs font-mono text-gray-600 dark:text-gray-300 w-fit">
+<span class="w-2 h-2 rounded-full bg-green-500 status-dot"></span>
+                        <span data-i18n="contact-status">AVAILABLE FOR OPPORTUNITIES</span>
+                    </div>
+</div>
+<div class="reveal reveal-delay-3 flex gap-8 text-sm font-medium dark:text-gray-300 mt-8">
+<a class="flex items-center gap-2 hover:text-primary dark:hover:text-primary-dark transition-colors" href="https://github.com/SchallmoserJuan" target="_blank" rel="noopener">
+                        GitHub <span class="material-symbols-outlined text-base">open_in_new</span>
+</a>
+<a class="flex items-center gap-2 hover:text-primary dark:hover:text-primary-dark transition-colors" href="https://www.linkedin.com/in/juanschallmoser/" target="_blank" rel="noopener">
+                        LinkedIn <span class="material-symbols-outlined text-base">open_in_new</span>
+</a>
+<a class="flex items-center gap-2 hover:text-primary dark:hover:text-primary-dark transition-colors" href="#">
+                        Resume <span class="material-symbols-outlined text-base">download</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-7 p-6 md:p-12">
+<form id="contactForm" class="space-y-6" onsubmit="handleSubmit(event)">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="reveal">
+<label class="block font-mono text-xs text-gray-500 dark:text-gray-400 uppercase mb-2 tracking-wider" data-i18n="form-name">Name</label>
+<input type="text" name="name" class="form-input" placeholder="Jane Smith" required id="nameInput"/>
+<p class="text-xs text-red-500 mt-1 hidden" id="nameError" data-i18n="form-name-error">Name is required</p>
+</div>
+<div class="reveal reveal-delay-1">
+<label class="block font-mono text-xs text-gray-500 dark:text-gray-400 uppercase mb-2 tracking-wider" data-i18n="form-email">Email</label>
+<input type="email" name="email" class="form-input" placeholder="jane@company.com" required id="emailInput"/>
+<p class="text-xs text-red-500 mt-1 hidden" id="emailError" data-i18n="form-email-error">Valid email is required</p>
+</div>
+</div>
+<div class="reveal reveal-delay-2">
+<label class="block font-mono text-xs text-gray-500 dark:text-gray-400 uppercase mb-2 tracking-wider" data-i18n="form-message">Message</label>
+<textarea name="message" class="form-input" rows="5" placeholder="Tell me about your project..." required id="messageInput"></textarea>
+<p class="text-xs text-red-500 mt-1 hidden" id="messageError" data-i18n="form-message-error">Message is required</p>
+</div>
+<div class="reveal reveal-delay-3 flex items-center gap-4">
+<button type="submit" id="submitBtn" class="px-8 py-3 bg-primary dark:bg-primary-dark text-white font-mono text-sm font-bold tracking-wider hover:opacity-90 transition-all duration-300 flex items-center gap-2">
+                            SEND MESSAGE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<p id="formSuccess" class="text-green-600 dark:text-green-400 font-mono text-sm hidden flex items-center gap-2">
+<span class="material-symbols-outlined text-base">check_circle</span> Message sent successfully!
+</p>
+</div>
+</form>
+</div>
+</div>
+</section>
+<footer class="p-6 md:p-12 bg-white dark:bg-background-dark">
+<div class="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 font-mono gap-4 md:gap-0">
+<p data-i18n="footer-copy">© 2026 Juan Schallmoser. Built with precision.</p>
+<div class="flex items-center gap-6">
+<span>v2.4.0 // PROD</span>
+</div>
+</div>
+</footer>
+</div>
+
+<!-- Back to Top Button -->
+<button class="back-to-top fixed bottom-8 right-8 z-50 w-12 h-12 bg-primary dark:bg-primary-dark text-white flex items-center justify-center shadow-lg hover:opacity-90 transition-all" id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+
+<script>
+// ========== Dark Mode ==========
+function toggleDarkMode() {
+    const html = document.documentElement;
+    html.classList.toggle('dark');
+    localStorage.setItem('darkMode', html.classList.contains('dark'));
+    updateToggleText();
+}
+function updateToggleText() {
+    const isDark = document.documentElement.classList.contains('dark');
+    const dt = document.getElementById('theme-toggle-text');
+    if (dt) {
+        dt.innerHTML = isDark
+            ? '[LIGHT / <span class="text-primary-dark">DARK</span>]'
+            : '[<span class="text-primary">LIGHT</span> / DARK]';
+    }
+}
+// Persist dark mode
+if (localStorage.getItem('darkMode') === 'true') {
+    document.documentElement.classList.add('dark');
+    updateToggleText();
+}
+
+// ========== Typing Effect ==========
+(function() {
+    const lines = ['Backend', 'Engineer'];
+    const target = document.getElementById('typing-target');
+    const cursor = document.getElementById('typing-cursor');
+    if (!target) return;
+    let lineIdx = 0, charIdx = 0;
+    function typeLine() {
+        if (lineIdx >= lines.length) {
+            if (cursor) cursor.style.display = 'none';
+            return;
+        }
+        if (charIdx <= lines[lineIdx].length) {
+            let html = '';
+            for (let i = 0; i < lineIdx; i++) html += lines[i] + '<br/>';
+            html += lines[lineIdx].substring(0, charIdx);
+            target.innerHTML = html;
+            charIdx++;
+            setTimeout(typeLine, 60);
+        } else {
+            lineIdx++;
+            charIdx = 0;
+            setTimeout(typeLine, 300);
+        }
+    }
+    setTimeout(typeLine, 500);
+})();
+
+// ========== Scroll Reveal ==========
+(function() {
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+})();
+
+// ========== Counter Animation ==========
+(function() {
+    const counters = document.querySelectorAll('.counter');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseFloat(el.dataset.target);
+                const suffix = el.dataset.suffix || '';
+                const duration = 2000;
+                const startTime = performance.now();
+                const isDecimal = target % 1 !== 0;
+                function updateCounter(timestamp) {
+                    const elapsed = timestamp - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = target * eased;
+                    el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+                    if (progress < 1) requestAnimationFrame(updateCounter);
+                }
+                requestAnimationFrame(updateCounter);
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(el => observer.observe(el));
+})();
+
+// ========== Active Nav on Scroll ==========
+(function() {
+    const sections = ['aboutme', 'projects', 'contact'];
+    const navLinks = document.querySelectorAll('.nav-link');
+    function onScroll() {
+        const scrollY = window.scrollY + 120;
+        let current = '';
+        // Check if at bottom of page — activate contact
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 50) {
+            current = 'contact';
+        } else {
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.offsetTop <= scrollY) current = id;
+            });
+        }
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.dataset.section === current);
+        });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// ========== Mobile Menu ==========
+function toggleMobileMenu() {
+    document.getElementById('mobileOverlay').classList.toggle('open');
+    document.body.style.overflow = document.getElementById('mobileOverlay').classList.contains('open') ? 'hidden' : '';
+}
+function closeMobileMenu(e) {
+    if (e.target === document.getElementById('mobileOverlay')) {
+        toggleMobileMenu();
+    }
+}
+
+// ========== Back to Top ==========
+(function() {
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        btn.classList.toggle('show', window.scrollY > 600);
+    }, { passive: true });
+})();
+
+// ========== Parallax Grid ==========
+(function() {
+    const grid = document.getElementById('gridBg');
+    if (!grid) return;
+    let ticking = false;
+    document.addEventListener('mousemove', (e) => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const x = (e.clientX / window.innerWidth - 0.5) * 10;
+                const y = (e.clientY / window.innerHeight - 0.5) * 10;
+                grid.style.backgroundPosition = `${x}px ${y}px`;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+})();
+
+// ========== Contact Form ==========
+function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('nameInput');
+    const email = document.getElementById('emailInput');
+    const message = document.getElementById('messageInput');
+    let valid = true;
+
+    // Reset
+    [name, email, message].forEach(el => el.classList.remove('error'));
+    document.querySelectorAll('[id$="Error"]').forEach(el => el.classList.add('hidden'));
+
+    if (!name.value.trim()) {
+        name.classList.add('error');
+        document.getElementById('nameError').classList.remove('hidden');
+        valid = false;
+    }
+    if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        email.classList.add('error');
+        document.getElementById('emailError').classList.remove('hidden');
+        valid = false;
+    }
+    if (!message.value.trim()) {
+        message.classList.add('error');
+        document.getElementById('messageError').classList.remove('hidden');
+        valid = false;
+    }
+
+    if (valid) {
+        const btn = document.getElementById('submitBtn');
+        btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">progress_activity</span> SENDING...';
+        btn.disabled = true;
+
+        // Simulate sending (replace with real endpoint like Formspree)
+        setTimeout(() => {
+            btn.innerHTML = 'SEND MESSAGE <span class="material-symbols-outlined text-sm">arrow_forward</span>';
+            btn.disabled = false;
+            document.getElementById('formSuccess').classList.remove('hidden');
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                document.getElementById('formSuccess').classList.add('hidden');
+            }, 4000);
+        }, 1500);
+    }
+}
+
+// ========== Skill Bars (if needed) ==========
+(function() {
+    const bars = document.querySelectorAll('.skill-bar');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    bars.forEach(el => observer.observe(el));
+})();
+// ========== i18n — EN/ES ==========
+const translations = {
+    // Nav
+    'nav-about': { en: 'About Me', es: 'Sobre Mí' },
+    'nav-projects': { en: 'Projects', es: 'Proyectos' },
+    'nav-contact': { en: 'Contact', es: 'Contacto' },
+    'nav-resume': { en: 'Resume', es: 'CV' },
+    // Hero
+    'hero-location': { en: 'Argentina • REMOTE', es: 'Argentina • REMOTO' },
+    'hero-tag-1': { en: 'Java & Spring Boot', es: 'Java & Spring Boot' },
+    'hero-tag-2': { en: 'Node.js & MERN Stack', es: 'Node.js & MERN Stack' },
+    'hero-tag-3': { en: 'AWS Cloud', es: 'AWS Cloud' },
+    'hero-tagline': { en: 'Building software that works — and sells.', es: 'Construyendo software que funciona — y vende.' },
+    'hero-context': { en: 'Backend Developer · SaaS Builder · AWS Cloud', es: 'Backend Developer · SaaS Builder · AWS Cloud' },
+    // About Me
+    'about-title': { en: 'About Me', es: 'Sobre Mí' },
+    'about-subtitle': { en: 'WHO I AM', es: 'QUIÉN SOY' },
+    'about-whatido-title': { en: 'What I Do', es: 'Qué Hago' },
+    'about-whatido-text': { en: 'I build backend APIs with Java and Node.js, deploy them on AWS, and create full-stack SaaS applications with the MERN stack. GoMove, my fitness coaching platform, runs in production with paying clients on a monthly subscription.', es: 'Desarrollo APIs backend con Java y Node.js, las despliego en AWS, y creo aplicaciones SaaS full-stack con el stack MERN. GoMove, mi plataforma de coaching fitness, corre en producción con clientes que pagan una suscripción mensual.' },
+    'about-edu-title': { en: 'Education', es: 'Educación' },
+    'about-edu-text': { en: "Técnico en Desarrollo de Software. Self-taught in cloud infrastructure, DevOps, and modern web development. Constantly learning and shipping — I believe the best education is building real products that people use and pay for.", es: 'Técnico en Desarrollo de Software. Autodidacta en infraestructura cloud, DevOps y desarrollo web moderno. Constantemente aprendiendo y entregando — creo que la mejor educación es construir productos reales que la gente use y pague.' },
+    // Tech Matrix
+    'tech-title': { en: 'Tech Matrix', es: 'Stack Técnico' },
+    'tech-subtitle': { en: 'INFRASTRUCTURE & TOOLING', es: 'INFRAESTRUCTURA & HERRAMIENTAS' },
+    // Projects
+    'projects-title': { en: 'Projects', es: 'Proyectos' },
+    'projects-subtitle': { en: "WHAT I'VE BUILT", es: 'LO QUE CONSTRUÍ' },
+    'proj1-name': { en: 'GoMove — SaaS Platform', es: 'GoMove — Plataforma SaaS' },
+    'proj1-card-desc': { en: 'Fitness coaching platform with subscription billing, workout tracking, and real-time session management. Live with paying clients.', es: 'Plataforma de coaching fitness con facturación por suscripción, seguimiento de rutinas y gestión de sesiones en tiempo real. En producción con clientes activos.' },
+    'proj2-name': { en: 'Engineering Portfolio', es: 'Portfolio de Ingeniería' },
+    'proj2-card-desc': { en: 'Professional portfolio with engineering-inspired design, scroll animations, dark mode, and fully functional contact form.', es: 'Portfolio profesional con diseño inspirado en ingeniería, animaciones de scroll, modo oscuro y formulario de contacto funcional.' },
+    'proj3-name': { en: 'REST API Toolkit', es: 'REST API Toolkit' },
+    'proj3-card-desc': { en: 'Spring Boot microservice template with JWT auth, role-based access, Swagger docs, and automated testing. Ready-to-deploy boilerplate.', es: 'Template de microservicio Spring Boot con autenticación JWT, control de acceso por roles, docs Swagger y testing automatizado.' },
+    'proj4-name': { en: 'E-Commerce Platform', es: 'Plataforma E-Commerce' },
+    'proj4-card-desc': { en: 'Full-stack online store with product catalog, cart system, Stripe payments, and admin dashboard. Serverless backend on AWS.', es: 'Tienda online full-stack con catálogo, carrito, pagos con Stripe y panel admin. Backend serverless en AWS.' },
+    'ethos2-text': { en: "I'm not the most experienced developer in the room, but I'm always learning. I study system design, best practices, and new technologies constantly. Every project is a chance to write better code than the last time.", es: 'No soy el desarrollador con más experiencia, pero siempre estoy aprendiendo. Estudio diseño de sistemas, buenas prácticas y nuevas tecnologías constantemente. Cada proyecto es una oportunidad de escribir mejor código que la vez anterior.' },
+    // Currently Learning
+    'learning-title': { en: 'Currently Learning', es: 'Aprendiendo' },
+    'learning-subtitle': { en: 'GROWTH PATH', es: 'CAMINO DE CRECIMIENTO' },
+    'learn1-title': { en: 'AWS Cloud Practitioner', es: 'AWS Cloud Practitioner' },
+    'learn1-text': { en: 'EC2, S3, RDS, IAM — building towards Solutions Architect', es: 'EC2, S3, RDS, IAM — camino a Solutions Architect' },
+    'learn2-title': { en: 'Serverless Architecture', es: 'Arquitectura Serverless' },
+    'learn2-text': { en: 'Lambda, API Gateway, DynamoDB — event-driven backends', es: 'Lambda, API Gateway, DynamoDB — backends event-driven' },
+    'learn3-title': { en: 'Docker & Containers', es: 'Docker & Contenedores' },
+    'learn3-text': { en: 'Containerizing apps, Docker Compose, ECS deployment', es: 'Containerizando apps, Docker Compose, despliegue en ECS' },
+    'learn4-title': { en: 'CI/CD Pipelines', es: 'Pipelines CI/CD' },
+    'learn4-text': { en: 'GitHub Actions, automated testing, deployment workflows', es: 'GitHub Actions, testing automatizado, workflows de despliegue' },
+    // Contact
+    'contact-heading': { en: "Let's build something together.", es: 'Construyamos algo juntos.' },
+    'contact-text': { en: "Looking for a backend developer who ships real products? I'm open to opportunities, freelance projects, and collaborations. Let's talk.", es: '¿Buscás un desarrollador backend que entregue productos reales? Estoy abierto a oportunidades, proyectos freelance y colaboraciones. Hablemos.' },
+    'contact-status': { en: 'AVAILABLE FOR OPPORTUNITIES', es: 'DISPONIBLE PARA OPORTUNIDADES' },
+    'form-name': { en: 'Name', es: 'Nombre' },
+    'form-email': { en: 'Email', es: 'Email' },
+    'form-message': { en: 'Message', es: 'Mensaje' },
+    'form-send': { en: 'SEND MESSAGE', es: 'ENVIAR MENSAJE' },
+    'form-name-error': { en: 'Name is required', es: 'El nombre es obligatorio' },
+    'form-email-error': { en: 'Valid email is required', es: 'Se requiere un email válido' },
+    'form-message-error': { en: 'Message is required', es: 'El mensaje es obligatorio' },
+    'form-success': { en: 'Message sent successfully!', es: '¡Mensaje enviado con éxito!' },
+    'footer-copy': { en: '© 2026 Juan Schallmoser. Built with precision.', es: '© 2026 Juan Schallmoser. Construido con precisión.' },
+};
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[key] && translations[key][lang]) {
+            if (el.dataset.i18nHtml) {
+                el.innerHTML = translations[key][lang];
+            } else {
+                el.textContent = translations[key][lang];
+            }
+        }
+    });
+    // Update toggle buttons
+    const btn = document.getElementById('lang-toggle');
+    const btnM = document.getElementById('lang-toggle-mobile');
+    if (btn) btn.innerHTML = lang === 'en'
+        ? '[<span class="text-primary dark:text-primary-dark">EN</span> / ES]'
+        : '[EN / <span class="text-primary dark:text-primary-dark">ES</span>]';
+    if (btnM) btnM.textContent = '[' + lang.toUpperCase() + ']';
+}
+
+function toggleLang() {
+    setLang(currentLang === 'en' ? 'es' : 'en');
+}
+
+// Apply saved language on load
+if (currentLang !== 'en') setLang(currentLang);
+
+
+
+
+// --- Enhanced Parallax ---
+(function() {
+    const grid = document.getElementById('gridBg');
+    if (!grid) return;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                grid.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    document.addEventListener('mousemove', e => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 10;
+        const y = (e.clientY / window.innerHeight - 0.5) * 10;
+        grid.style.backgroundPosition = `${x}px ${y + window.scrollY * 0.3}px`;
+    });
+})();
+
+</script>
+</body></html>
