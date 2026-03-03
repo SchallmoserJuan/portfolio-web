@@ -2,13 +2,15 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Juan Schallmoser — Software Engineer</title>
+<title>Juan S. ~ S.Eng</title>
 <meta name="description" content="Backend developer building SaaS products with Java, Node.js, and AWS. From Argentina, open to remote opportunities."/>
 <meta property="og:title" content="Juan Schallmoser — Software Engineer"/>
 <meta property="og:description" content="I build real products with Java, Node.js, and AWS. MERN stack SaaS developer from Argentina."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://juanschallmoser.dev"/>
+<meta property="og:image" content="https://juanschallmoser.dev/assets/images/og-preview.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://juanschallmoser.dev/assets/images/og-preview.png"/>
 <meta name="twitter:title" content="Juan Schallmoser — Software Engineer"/>
 <meta name="twitter:description" content="Software engineer from Argentina. Building real products with Java, Node.js & AWS."/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23005FB8'/><text x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' fill='white' font-family='monospace' font-weight='bold' font-size='14'>JS</text></svg>"/>
@@ -16,39 +18,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#005FB8",
-                        "primary-dark": "#3B82F6",
-                        "background-light": "#FFFFFF",
-                        "background-dark": "#111111", 
-                        "text-main": "#111111",
-                        "text-main-dark": "#EEEEEE",
-                        "grid-line": "#E5E5E5",
-                        "grid-line-dark": "#2A2A2A",
-                        "surface-light": "#F9FAFB",
-                        "surface-dark": "#161616",
-                    },
-                    fontFamily: {
-                        "sans": ['IBM Plex Sans', 'sans-serif'],
-                        "mono": ['IBM Plex Mono', 'monospace'],
-                        "display": ['IBM Plex Sans', 'sans-serif'] 
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0px", 
-                        "lg": "0px",
-                        "xl": "0px",
-                        "full": "9999px",
-                    },
-                },
-            },
-        }
-    </script>
+<link href="assets/css/styles.css" rel="stylesheet"/>
 <style>
         html { scroll-behavior: smooth; }
         body { transition: background-color 0.5s ease, color 0.5s ease; }
@@ -775,7 +745,7 @@
                     Looking for a backend developer who ships real products? I'm open to opportunities, freelance projects, and collaborations. Let's talk.
                 </p>
 <div class="reveal reveal-delay-2 flex flex-col gap-4">
-<a class="text-lg font-mono hover:text-primary dark:hover:text-primary-dark transition-colors underline decoration-1 underline-offset-4 dark:text-gray-300" href="mailto:schallmoserjuan@gmail.com">hello@juanschallmoser.dev</a>
+<a class="text-lg font-mono hover:text-primary dark:hover:text-primary-dark transition-colors underline decoration-1 underline-offset-4 dark:text-gray-300" href="mailto:schallmoserjuan@gmail.com">schallmoserjuan@gmail.com</a>
 <div class="flex items-center gap-2 px-3 py-1.5 border border-grid-line dark:border-grid-line-dark bg-gray-50 dark:bg-surface-dark text-xs font-mono text-gray-600 dark:text-gray-300 w-fit">
 <span class="w-2 h-2 rounded-full bg-green-500 status-dot"></span>
                         <span data-i18n="contact-status">AVAILABLE FOR OPPORTUNITIES</span>
@@ -993,6 +963,7 @@ function closeMobileMenu(e) {
 })();
 
 // ========== Contact Form ==========
+let formCooldown = false;
 function handleSubmit(e) {
     e.preventDefault();
     const name = document.getElementById('nameInput');
@@ -1021,6 +992,10 @@ function handleSubmit(e) {
     }
 
     if (valid) {
+        if (formCooldown) {
+            alert('Please wait a few seconds before sending another message.');
+            return;
+        }
         const btn = document.getElementById('submitBtn');
         btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">progress_activity</span> SENDING...';
         btn.disabled = true;
@@ -1040,9 +1015,11 @@ function handleSubmit(e) {
             if (response.ok) {
                 document.getElementById('formSuccess').classList.remove('hidden');
                 document.getElementById('contactForm').reset();
+                formCooldown = true;
                 setTimeout(() => {
                     document.getElementById('formSuccess').classList.add('hidden');
-                }, 4000);
+                    formCooldown = false;
+                }, 10000);
             } else {
                 alert('Something went wrong. Please try again or email me directly.');
             }
