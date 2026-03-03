@@ -2,7 +2,7 @@
 
 Personal portfolio — Backend Engineer.
 
-🔗 **Live:** [juanschallmoser.dev](https://juanschallmoser.dev)
+🔗 **Live:** [schallmoserjuan.dev/](https://schallmoserjuan.pages.dev/)
 
 ## Stack
 
