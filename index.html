@@ -1025,16 +1025,33 @@ function handleSubmit(e) {
         btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">progress_activity</span> SENDING...';
         btn.disabled = true;
 
-        // Simulate sending (replace with real endpoint like Formspree)
-        setTimeout(() => {
+        fetch('https://formspree.io/f/xlgwyyzj', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+                name: name.value.trim(),
+                email: email.value.trim(),
+                message: message.value.trim()
+            })
+        })
+        .then(response => {
             btn.innerHTML = 'SEND MESSAGE <span class="material-symbols-outlined text-sm">arrow_forward</span>';
             btn.disabled = false;
-            document.getElementById('formSuccess').classList.remove('hidden');
-            document.getElementById('contactForm').reset();
-            setTimeout(() => {
-                document.getElementById('formSuccess').classList.add('hidden');
-            }, 4000);
-        }, 1500);
+            if (response.ok) {
+                document.getElementById('formSuccess').classList.remove('hidden');
+                document.getElementById('contactForm').reset();
+                setTimeout(() => {
+                    document.getElementById('formSuccess').classList.add('hidden');
+                }, 4000);
+            } else {
+                alert('Something went wrong. Please try again or email me directly.');
+            }
+        })
+        .catch(() => {
+            btn.innerHTML = 'SEND MESSAGE <span class="material-symbols-outlined text-sm">arrow_forward</span>';
+            btn.disabled = false;
+            alert('Network error. Please try again or email me directly.');
+        });
     }
 }
 
