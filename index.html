@@ -369,6 +369,7 @@
 <span id="typing-target"></span><span class="typing-cursor" id="typing-cursor">&nbsp;</span>
                         </h1>
 <p class="font-mono text-sm text-gray-500 dark:text-gray-400 mt-2" data-i18n="hero-location">Argentina • REMOTE</p>
+<p class="font-mono text-xs text-primary dark:text-primary-dark mt-1 tracking-wider" data-i18n="hero-citizenship">EU CITIZEN</p>
 </div>
 <div class="mt-12 lg:mt-0 reveal reveal-delay-2">
 <div class="flex flex-col gap-2 font-mono text-xs uppercase tracking-wider text-gray-600 dark:text-gray-400">
@@ -421,7 +422,7 @@
 </div>
 </div>
 </section>
-<div class="section-separator"></div>
+<!-- <div class="section-separator"></div> -->
 <!-- Timeline -->
 <section class="border-b border-grid-line dark:border-grid-line-dark">
 <div class="grid grid-cols-1 lg:grid-cols-12">
@@ -457,7 +458,7 @@
 <div class="absolute -left-[calc(2rem+5px)] top-1 w-2.5 h-2.5 rounded-full bg-primary dark:bg-primary-dark"></div>
 <span class="font-mono text-[10px] text-gray-400 uppercase tracking-wider" data-i18n="tl1-date">2024 – 2026</span>
 <h3 class="font-bold text-sm dark:text-white mt-1" data-i18n="tl1-title">Technical Degree in Software Development</h3>
-<p class="text-sm text-gray-600 dark:text-gray-400 mt-1" data-i18n="tl1-text">Técnico en Desarrollo de Software. Backend development, databases, and software architecture.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mt-1" data-i18n="tl1-text">Backend development, databases, and software architecture.</p>
 </div>
 </div>
 </div>
@@ -579,97 +580,127 @@
 </div>
 </section>
 <div class="section-separator"></div>
+<!-- ======= FEATURED PROJECT: GoMove ======= -->
 <section class="border-b border-grid-line dark:border-grid-line-dark" id="projects">
+<div class="grid grid-cols-1 lg:grid-cols-12">
+<div class="lg:col-span-3 p-6 md:p-12 border-b lg:border-b-0 lg:border-r border-grid-line dark:border-grid-line-dark bg-gray-50 dark:bg-surface-dark">
+<h2 class="text-2xl font-bold tracking-tight sticky top-24 dark:text-white" data-i18n="featured-title">Featured Product</h2>
+<p class="mt-4 text-sm text-gray-500 dark:text-gray-400 font-mono sticky top-36" data-i18n="featured-subtitle">LIVE IN PRODUCTION</p>
+</div>
+<div class="lg:col-span-9 p-6 md:p-12">
+<a href="https://www.gomove.com.ar" target="_blank" rel="noopener" class="reveal group block border border-primary/20 dark:border-primary-dark/20 rounded overflow-hidden transition-all duration-150 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,95,184,0.15)] dark:hover:shadow-[0_12px_40px_rgba(59,130,246,0.12)] hover:border-primary/40 dark:hover:border-primary-dark/40">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="relative overflow-hidden">
+<img src="assets/images/gmpreview.png" alt="GoMove SaaS Platform" class="w-full max-h-[400px] object-cover object-center transition-transform duration-300 group-hover:scale-105 bg-gray-50 dark:bg-surface-dark"/>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+<span class="font-mono text-xs text-white uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity border border-white/50 px-3 py-1.5 backdrop-blur-sm">View Live →</span>
+</div>
+</div>
+<div class="p-6 md:p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-3 mb-3">
+<h3 class="font-semibold text-xl dark:text-white group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" data-i18n="proj1-name">GoMove — SaaS Platform</h3>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded">LIVE</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5" data-i18n="proj1-card-desc">Production SaaS platform handling real-time workout sessions, secure payment processing, and multi-tenant data isolation. Architected the backend to manage concurrent coaching sessions with WebSocket state sync, integrated payment security with tokenized billing, and deployed the full infrastructure on AWS with CI/CD pipelines.</p>
+</div>
+<!-- Metrics -->
+<div class="grid grid-cols-3 gap-4 mb-5 py-4 border-t border-b border-grid-line dark:border-grid-line-dark">
+<div class="text-center">
+<span class="block text-xl font-bold text-primary dark:text-primary-dark counter" data-target="100" data-suffix="+">0</span>
+<span class="text-[10px] font-mono text-gray-400 uppercase tracking-wider" data-i18n="proj1-metric1">Active Users</span>
+</div>
+<div class="text-center">
+<span class="block text-xl font-bold text-primary dark:text-primary-dark counter" data-target="99.9" data-suffix="%">0</span>
+<span class="text-[10px] font-mono text-gray-400 uppercase tracking-wider" data-i18n="proj1-metric2">Uptime</span>
+</div>
+<div class="text-center">
+<span class="block text-xl font-bold text-primary dark:text-primary-dark">2 <span class="text-sm" data-i18n="proj1-metric3-unit">weeks</span></span>
+<span class="text-[10px] font-mono text-gray-400 uppercase tracking-wider" data-i18n="proj1-metric3">AWS Deploy</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Node.js</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">AWS</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Firebase</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">WebSockets</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">React</span>
+<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">PWA</span>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+<div class="section-separator"></div>
+<!-- ======= OTHER PROJECTS ======= -->
+<section class="border-b border-grid-line dark:border-grid-line-dark">
 <div class="grid grid-cols-1 lg:grid-cols-12">
 <div class="lg:col-span-3 p-6 md:p-12 border-b lg:border-b-0 lg:border-r border-grid-line dark:border-grid-line-dark bg-gray-50 dark:bg-surface-dark">
 <h2 class="text-2xl font-bold tracking-tight sticky top-24 dark:text-white" data-i18n="projects-title">Projects</h2>
 <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 font-mono sticky top-36" data-i18n="projects-subtitle">WHAT I'VE BUILT</p>
 </div>
 <div class="lg:col-span-9 p-6 md:p-12">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<!-- GoMove -->
-<a href="https://www.gomove.com.ar" target="_blank" rel="noopener" class="reveal group block border border-grid-line dark:border-grid-line-dark rounded overflow-hidden transition-all duration-150 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
-<div class="relative overflow-hidden">
-<img src="gomove-preview.png" alt="GoMove SaaS Platform" class="w-full h-[160px] object-cover object-top transition-transform duration-300 group-hover:scale-105"/>
-<div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-<span class="font-mono text-xs text-white uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity border border-white/50 px-3 py-1.5 backdrop-blur-sm">View Project →</span>
-</div>
-</div>
-<div class="p-5">
-<div class="flex items-baseline justify-between mb-2">
-<h3 class="font-semibold text-lg dark:text-white group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" data-i18n="proj1-name">GoMove — SaaS Platform</h3>
-<span class="font-mono text-[10px] text-gray-400 ml-2 shrink-0">2025</span>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4" data-i18n="proj1-card-desc">Fitness coaching platform with subscription billing, workout tracking, and real-time session management. Live with paying clients.</p>
-<div class="flex flex-wrap gap-1.5">
-<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">React</span>
-<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Node.js</span>
-<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Firebase</span>
-<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">PWA</span>
-</div>
-</div>
-</a>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <!-- Engineering Portfolio -->
-<a href="https://github.com/SchallmoserJuan/portfolio-web" target="_blank" rel="noopener" class="reveal reveal-delay-1 group block border border-grid-line dark:border-grid-line-dark rounded overflow-hidden transition-all duration-150 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
+<a href="https://github.com/SchallmoserJuan/portfolio-web" target="_blank" rel="noopener" class="reveal group block border border-grid-line dark:border-grid-line-dark rounded overflow-hidden transition-all duration-150 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
 <div class="relative overflow-hidden">
-<img src="portfolio-preview.png" alt="Engineering Portfolio" class="w-full h-[160px] object-cover object-top transition-transform duration-300 group-hover:scale-105"/>
+<img src="assets/images/portfolio-preview.png" alt="Engineering Portfolio" class="w-full h-[140px] object-cover object-top transition-transform duration-300 group-hover:scale-105"/>
 <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
 <span class="font-mono text-xs text-white uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity border border-white/50 px-3 py-1.5 backdrop-blur-sm">View Project →</span>
 </div>
 </div>
-<div class="p-5">
+<div class="p-4">
 <div class="flex items-baseline justify-between mb-2">
-<h3 class="font-semibold text-lg dark:text-white group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" data-i18n="proj2-name">Engineering Portfolio</h3>
+<h3 class="font-semibold text-sm dark:text-white group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" data-i18n="proj2-name">Engineering Portfolio</h3>
 <span class="font-mono text-[10px] text-gray-400 ml-2 shrink-0">2024</span>
 </div>
-<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4" data-i18n="proj2-card-desc">Professional portfolio with engineering-inspired design, scroll animations, dark mode, and fully functional contact form.</p>
+<p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-3" data-i18n="proj2-card-desc">Professional portfolio with engineering-inspired design, scroll animations, dark mode, and fully functional contact form.</p>
 <div class="flex flex-wrap gap-1.5">
 <span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">HTML</span>
 <span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Tailwind</span>
 <span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">JavaScript</span>
-<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">GitHub Pages</span>
 </div>
 </div>
 </a>
 <!-- REST API Toolkit -->
-<a href="#" target="_blank" rel="noopener" class="reveal reveal-delay-2 group block border border-grid-line dark:border-grid-line-dark rounded overflow-hidden transition-all duration-100 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
+<a href="#" target="_blank" rel="noopener" class="reveal reveal-delay-1 group block border border-grid-line dark:border-grid-line-dark rounded overflow-hidden transition-all duration-100 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
 <div class="relative overflow-hidden">
-<img src="api-dashboard-preview.png" alt="REST API Toolkit" class="w-full h-[160px] object-cover object-top transition-transform duration-300 group-hover:scale-105"/>
+<img src="assets/images/api-dashboard-preview.png" alt="REST API Toolkit" class="w-full h-[140px] object-cover object-top transition-transform duration-300 group-hover:scale-105"/>
 <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
 <span class="font-mono text-xs text-white uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity border border-white/50 px-3 py-1.5 backdrop-blur-sm">View Project →</span>
 </div>
 </div>
-<div class="p-5">
+<div class="p-4">
 <div class="flex items-baseline justify-between mb-2">
-<h3 class="font-semibold text-lg dark:text-white group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" data-i18n="proj3-name">REST API Toolkit</h3>
+<h3 class="font-semibold text-sm dark:text-white group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" data-i18n="proj3-name">REST API Toolkit</h3>
 <span class="font-mono text-[10px] text-gray-400 ml-2 shrink-0">2024</span>
 </div>
-<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4" data-i18n="proj3-card-desc">Spring Boot microservice template with JWT auth, role-based access, Swagger docs, and automated testing. Ready-to-deploy boilerplate.</p>
+<p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-3" data-i18n="proj3-card-desc">Spring Boot microservice template with JWT auth, role-based access, Swagger docs, and automated testing. Ready-to-deploy boilerplate.</p>
 <div class="flex flex-wrap gap-1.5">
 <span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Java</span>
 <span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Spring Boot</span>
 <span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">PostgreSQL</span>
-<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Docker</span>
 </div>
 </div>
 </a>
 <!-- E-Commerce Platform -->
-<a href="#" target="_blank" rel="noopener" class="reveal reveal-delay-3 group block border border-grid-line dark:border-grid-line-dark rounded overflow-hidden transition-all duration-100 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
+<a href="#" target="_blank" rel="noopener" class="reveal reveal-delay-2 group block border border-grid-line dark:border-grid-line-dark rounded overflow-hidden transition-all duration-100 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,95,184,0.1)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] hover:border-primary/30 dark:hover:border-primary-dark/30">
 <div class="relative overflow-hidden">
-<img src="api-dashboard-preview.png" alt="E-Commerce Platform" class="w-full h-[160px] object-cover object-center transition-transform duration-300 group-hover:scale-105"/>
+<img src="assets/images/api-dashboard-preview.png" alt="E-Commerce Platform" class="w-full h-[140px] object-cover object-center transition-transform duration-300 group-hover:scale-105"/>
 <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
 <span class="font-mono text-xs text-white uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity border border-white/50 px-3 py-1.5 backdrop-blur-sm">View Project →</span>
 </div>
 </div>
-<div class="p-5">
+<div class="p-4">
 <div class="flex items-baseline justify-between mb-2">
-<h3 class="font-semibold text-lg dark:text-white group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" data-i18n="proj4-name">E-Commerce Platform</h3>
+<h3 class="font-semibold text-sm dark:text-white group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" data-i18n="proj4-name">E-Commerce Platform</h3>
 <span class="font-mono text-[10px] text-gray-400 ml-2 shrink-0">2024</span>
 </div>
-<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4" data-i18n="proj4-card-desc">Full-stack online store with product catalog, cart system, Stripe payments, and admin dashboard. Serverless backend on AWS.</p>
+<p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-3" data-i18n="proj4-card-desc">Full-stack online store with product catalog, cart system, Stripe payments, and admin dashboard. Serverless backend on AWS.</p>
 <div class="flex flex-wrap gap-1.5">
 <span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Next.js</span>
-<span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Node.js</span>
 <span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">AWS Lambda</span>
 <span class="text-[10px] font-mono px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Stripe</span>
 </div>
@@ -795,9 +826,9 @@
 </section>
 <footer class="p-6 md:p-12 bg-white dark:bg-background-dark">
 <div class="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 font-mono gap-4 md:gap-0">
-<p data-i18n="footer-copy">© 2026 Juan Schallmoser. Built with precision.</p>
+<p data-i18n="footer-copy">© 2026 Juan Schallmoser</p>
 <div class="flex items-center gap-6">
-<span>v2.4.0 // PROD</span>
+<span>// Built with precision</span>
 </div>
 </div>
 </footer>
@@ -1029,6 +1060,7 @@ const translations = {
     'nav-resume': { en: 'Resume', es: 'CV' },
     // Hero
     'hero-location': { en: 'Argentina • REMOTE', es: 'Argentina • REMOTO' },
+    'hero-citizenship': { en: 'EU CITIZEN', es: 'CIUDADANO UE' },
     'hero-tag-1': { en: 'Java & Spring Boot', es: 'Java & Spring Boot' },
     'hero-tag-2': { en: 'Node.js & MERN Stack', es: 'Node.js & MERN Stack' },
     'hero-tag-3': { en: 'AWS Cloud', es: 'AWS Cloud' },
@@ -1059,11 +1091,18 @@ const translations = {
     // Tech Matrix
     'tech-title': { en: 'Tech Matrix', es: 'Stack Técnico' },
     'tech-subtitle': { en: 'INFRASTRUCTURE & TOOLING', es: 'INFRAESTRUCTURA & HERRAMIENTAS' },
+    // Featured Product
+    'featured-title': { en: 'Featured Product', es: 'Producto Destacado' },
+    'featured-subtitle': { en: 'LIVE IN PRODUCTION', es: 'EN PRODUCCIÓN' },
     // Projects
     'projects-title': { en: 'Projects', es: 'Proyectos' },
     'projects-subtitle': { en: "WHAT I'VE BUILT", es: 'LO QUE CONSTRUÍ' },
     'proj1-name': { en: 'GoMove — SaaS Platform', es: 'GoMove — Plataforma SaaS' },
-    'proj1-card-desc': { en: 'Fitness coaching platform with subscription billing, workout tracking, and real-time session management. Live with paying clients.', es: 'Plataforma de coaching fitness con facturación por suscripción, seguimiento de rutinas y gestión de sesiones en tiempo real. En producción con clientes activos.' },
+    'proj1-card-desc': { en: 'Production SaaS platform handling real-time workout sessions, secure payment processing, and multi-tenant data isolation. Architected the backend to manage concurrent coaching sessions with WebSocket state sync, integrated payment security with tokenized billing, and deployed the full infrastructure on AWS with CI/CD pipelines.', es: 'Plataforma SaaS en producción que maneja sesiones de entrenamiento en tiempo real, procesamiento seguro de pagos y aislamiento multi-tenant. Arquitectura backend para gestionar sesiones concurrentes con sincronización WebSocket, seguridad de pagos con facturación tokenizada, e infraestructura completa desplegada en AWS con pipelines CI/CD.' },
+    'proj1-metric1': { en: 'Active Users', es: 'Usuarios Activos' },
+    'proj1-metric2': { en: 'Uptime', es: 'Uptime' },
+    'proj1-metric3': { en: 'AWS Deploy', es: 'Deploy AWS' },
+    'proj1-metric3-unit': { en: 'weeks', es: 'sem' },
     'proj2-name': { en: 'Engineering Portfolio', es: 'Portfolio de Ingeniería' },
     'proj2-card-desc': { en: 'Professional portfolio with engineering-inspired design, scroll animations, dark mode, and fully functional contact form.', es: 'Portfolio profesional con diseño inspirado en ingeniería, animaciones de scroll, modo oscuro y formulario de contacto funcional.' },
     'proj3-name': { en: 'REST API Toolkit', es: 'REST API Toolkit' },
